@@ -213,7 +213,6 @@ export default {
     async bestAlgorithm() {
       axios.get("http://localhost:8082/best-algorithm").then(
         (response) => {
-          console.log("best algorithm result", response.data);
           this.bestAlgorithmResponse = response.data;
           this.upladSuccess = true;
         },

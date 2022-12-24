@@ -221,6 +221,7 @@ export default {
         (response) => {
           this.bestAlgorithmResponse = response.data;
           this.upladSuccess = true;
+          this.getAttributes();
         },
         (error) => {
           console.log("something bad happened --> ", error);
@@ -264,7 +265,6 @@ export default {
               console.log("-response of browse-", response);
               this.isFileSelected = true;
               this.bestAlgorithm();
-              this.getAttributes();
             },
             (error) => {
               console.log("something bad happened --> ", error);

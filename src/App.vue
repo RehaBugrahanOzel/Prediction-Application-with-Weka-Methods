@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld msg="INPUT GIR" />
+  <HelloWorld msg="WEKA" />
 </template>
 
 <script>
@@ -19,6 +19,11 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #a8dadc;
+}
 #app {
   background-color: #a8dadc;
   width: 100%;

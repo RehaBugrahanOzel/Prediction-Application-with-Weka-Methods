@@ -2,7 +2,7 @@
   <div class="hello">
     <p class="element">{{ msg }}</p>
     <div class="date">
-      <label for="browse">Choose a arff file path:</label>
+      Choose a arff file path:
       <input
         class="element"
         id="browse"
@@ -366,10 +366,12 @@ export default {
 .hello {
   position: absolute;
   left: 50%;
+  top: 0;
   transform: translate(-50%, 0);
   border-radius: 20px;
   background-color: #f1faee;
   padding: 50px;
+  margin: 50px 0;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -89,6 +89,7 @@ export default {
 
 <style scoped lang="scss">
 .vue-dropdown {
+  font-size: calc(8px + 1vw);
   font-weight: bold;
   background-color: white;
   padding: 5px;

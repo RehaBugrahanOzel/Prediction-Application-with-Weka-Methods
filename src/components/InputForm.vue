@@ -3,7 +3,7 @@
     <div class="date" v-if="item.type === 'nominal'">
       <div class="container">
         <button class="element" @click.stop="item.flag = !item.flag">
-          {{ item.name }}
+          {{ item.name }} ▼
         </button>
         <vue-dropdown
           v-if="item.flag"
@@ -21,10 +21,11 @@
         {{ selectedList[item.id].attribute }}
       </div>
     </div>
-    <div class="date" v-else-if="item.type === 'numeric'">
-      <div class="element">{{ item.name }}</div>
+    <div class="numeric-container" v-else-if="item.type === 'numeric'">
+      <div class="numeric-element">{{ item.name }}</div>
+      <div class="numeric-element">►</div>
       <input
-        class="element"
+        class="numeric-element"
         v-model="this.selectedList[item.id].attribute"
         placeholder="Enter a numeric value"
       />
@@ -128,6 +129,7 @@ export default {
 
 <style>
 .container {
+  font-size: calc(8px + 1vw);
   font-weight: bold;
   padding: 0 5px;
   position: relative;
@@ -147,6 +149,24 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+}
+
+.numeric-container {
+  font-weight: bold;
+  border-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: #457b9d;
+  border-radius: 8px;
+  border: solid;
+}
+.numeric-element {
+  background-color: #457b9d;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 8px;
 }
 input::placeholder {
   color: #2c3e50;

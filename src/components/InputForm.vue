@@ -161,6 +161,7 @@ export default {
   background-color: #457b9d;
   border-radius: 8px;
   border: solid;
+  margin: 5px 0;
 }
 .numeric-element {
   background-color: #457b9d;

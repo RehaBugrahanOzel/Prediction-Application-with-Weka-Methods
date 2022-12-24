@@ -246,6 +246,14 @@ export default {
           console.log("response of submit ", response);
           this.result = JSON.stringify(response.data);
           this.resultReady = true;
+          axios.post("http://localhost:8082/restart").then(
+            (response) => {
+              console.log("response of restart ", response);
+            },
+            (error) => {
+              console.log("something bad happened --> ", error);
+            }
+          );
         },
         (error) => {
           console.log("something bad happened --> ", error);

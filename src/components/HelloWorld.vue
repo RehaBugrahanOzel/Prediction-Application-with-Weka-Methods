@@ -221,7 +221,6 @@ export default {
         (response) => {
           this.bestAlgorithmResponse = response.data;
           this.upladSuccess = true;
-          this.getAttributes();
         },
         (error) => {
           console.log("something bad happened --> ", error);
@@ -247,6 +246,14 @@ export default {
           console.log("response of submit ", response);
           this.result = JSON.stringify(response.data);
           this.resultReady = true;
+          axios.post("http://localhost:8082/restart").then(
+            (response) => {
+              console.log("response of restart ", response);
+            },
+            (error) => {
+              console.log("something bad happened --> ", error);
+            }
+          );
         },
         (error) => {
           console.log("something bad happened --> ", error);
@@ -258,19 +265,12 @@ export default {
       this.File = browse.target.files[0];
       const formData = new FormData();
       formData.append("file", this.File, this.File.name);
-      axios.post("http://localhost:8082/restart").then(
+      axios.post("http://localhost:8082/upload", formData).then(
         (response) => {
-          axios.post("http://localhost:8082/upload", formData).then(
-            (response) => {
-              console.log("-response of browse-", response);
-              this.isFileSelected = true;
-              this.bestAlgorithm();
-            },
-            (error) => {
-              console.log("something bad happened --> ", error);
-            }
-          );
-          console.log("response of restart ", response);
+          console.log("-response of browse-", response);
+          this.isFileSelected = true;
+          this.bestAlgorithm();
+          this.getAttributes();
         },
         (error) => {
           console.log("something bad happened --> ", error);

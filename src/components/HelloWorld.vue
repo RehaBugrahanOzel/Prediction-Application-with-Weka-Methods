@@ -9,6 +9,7 @@
         type="file"
         accept=".arff"
         @change="browse"
+        @click="closeInputSection"
       />
     </div>
     <div class="element" v-if="isUploadSuccess">
@@ -210,6 +211,11 @@ export default {
     },
   },
   methods: {
+    closeInputSection() {
+      this.isDataReady = false;
+      this.upladSuccess = false;
+      this.resultReady = false;
+    },
     async bestAlgorithm() {
       axios.get("http://localhost:8082/best-algorithm").then(
         (response) => {
